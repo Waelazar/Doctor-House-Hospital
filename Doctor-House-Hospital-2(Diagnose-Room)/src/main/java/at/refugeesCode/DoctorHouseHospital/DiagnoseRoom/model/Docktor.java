@@ -42,7 +42,7 @@ public class Docktor {
                 return entry.getKey();
             }
         }
-        return "is empty";
+        return "it is lupus";
     }
 
 }
