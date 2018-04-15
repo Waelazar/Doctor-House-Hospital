@@ -18,13 +18,16 @@ public class Patient {
 
     private String illness;
 
+    private String treatment;
+
     public Patient() {
     }
 
-    public Patient(String name, List<String> symptoms, String illness) {
+    public Patient(String name, List<String> symptoms, String illness, String treatment) {
         this.name = name;
         this.symptoms = symptoms;
         this.illness = illness;
+        this.treatment = treatment;
     }
 
     public String getId() {
@@ -57,5 +60,13 @@ public class Patient {
 
     public void setIllness(String illness) {
         this.illness = illness;
+    }
+
+    public String getTreatment() {
+        return treatment;
+    }
+
+    public void setTreatment(String treatment) {
+        this.treatment = treatment;
     }
 }
