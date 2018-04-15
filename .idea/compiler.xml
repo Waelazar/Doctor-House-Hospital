@@ -7,10 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Doctor-House-Hospital-1(Hospital-Admission)" />
+        <module name="Doctor-House-Hospital-2(Diagnose-Room)" />
+        <module name="Doctor-House-Hospital-3(Nursary)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Doctor-House-Hospital-1(Hospital-Admission)" target="9" />
+      <module name="Doctor-House-Hospital-2(Diagnose-Room)" target="9" />
+      <module name="Doctor-House-Hospital-3(Nursary)" target="9" />
     </bytecodeTargetLevel>
   </component>
 </project>

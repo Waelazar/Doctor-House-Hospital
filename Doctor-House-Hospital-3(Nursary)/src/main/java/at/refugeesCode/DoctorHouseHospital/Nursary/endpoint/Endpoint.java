@@ -3,11 +3,10 @@ package at.refugeesCode.DoctorHouseHospital.Nursary.endpoint;
 import at.refugeesCode.DoctorHouseHospital.Nursary.logic.Nurse;
 import at.refugeesCode.DoctorHouseHospital.Nursary.presistence.model.Patient;
 import at.refugeesCode.DoctorHouseHospital.Nursary.presistence.repository.PatientRepository;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 
 
 @RestController
@@ -22,11 +21,15 @@ public class Endpoint {
         this.patient = patient;
     }
 
-    @PostMapping
-    Patient recivePatient(@RequestBody Patient patient){
+    @GetMapping
+    List<Patient> getAllPatients(){
+        return patientRepository.findAll();
+    }
+
+    @PostMapping()
+    void recivePatient(@RequestBody Patient recivedPatient){
         Nurse nurse = new Nurse();
-        Patient checkedPatient = nurse.check();
+        Patient checkedPatient = nurse.check(recivedPatient);
         patientRepository.save(checkedPatient);
-        return patient;
     }
 }

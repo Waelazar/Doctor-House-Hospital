@@ -2,21 +2,22 @@ package at.refugeesCode.DoctorHouseHospital.Nursary.logic;
 
 import at.refugeesCode.DoctorHouseHospital.Nursary.presistence.model.Patient;
 import at.refugeesCode.DoctorHouseHospital.Nursary.presistence.repository.PatientRepository;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
+@Component
 public class Nurse {
 
     private Patient patient;
 
     private PatientRepository patientRepository;
-    public Patient check(){
-        String illness = patient.getIllness();
+    public Patient check(Patient recivedPatient){
+        String illness = recivedPatient.getIllness();
         String treatment = getTreatment(illness);
-        patient.setTreatment(treatment);
-        return patient;
+        recivedPatient.setTreatment(treatment);
+        return recivedPatient;
     }
 
     private String getTreatment(String illness) {

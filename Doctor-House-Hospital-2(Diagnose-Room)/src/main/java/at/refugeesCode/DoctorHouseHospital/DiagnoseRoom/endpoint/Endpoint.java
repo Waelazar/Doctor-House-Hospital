@@ -17,8 +17,6 @@ public class Endpoint {
 
     private Docktor doctor;
 
-    @Value("${Nursery.Url}")
-    private String nurseryUrl;
     private List<Patient> patientList = new ArrayList<>();
 
     public Endpoint(Patient patient, Docktor doctor) {
@@ -28,15 +26,15 @@ public class Endpoint {
 
     @GetMapping
     List<Patient> getPatientList(){
-        RestTemplate restTemplate = new RestTemplate();
-        restTemplate.postForEntity(nurseryUrl, patient, Patient.class);
         return patientList;
     }
 
     @PostMapping
-    void reciveOnePatient(@RequestBody Patient patient) {
-        Patient check = doctor.check(patient);
-        patientList.add(check);
+    Patient reciveOnePatient(@RequestBody Patient patient) {
+        Patient checkedPatient = doctor.check(patient);
+        patientList.add(checkedPatient);
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.postForEntity("http://localhost:8082/patients", checkedPatient, Patient.class);
+        return checkedPatient;
     }
-
 }
