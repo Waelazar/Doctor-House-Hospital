@@ -2,7 +2,9 @@ package at.refugeesCode.DoctorHouseHospital.DiagnoseRoom.endpoint;
 
 import at.refugeesCode.DoctorHouseHospital.DiagnoseRoom.model.Docktor;
 import at.refugeesCode.DoctorHouseHospital.DiagnoseRoom.model.Patient;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +16,9 @@ public class Endpoint {
     private Patient patient;
 
     private Docktor doctor;
+
+    @Value("${Nursery.Url}")
+    private String nurseryUrl;
     private List<Patient> patientList = new ArrayList<>();
 
     public Endpoint(Patient patient, Docktor doctor) {
@@ -23,6 +28,8 @@ public class Endpoint {
 
     @GetMapping
     List<Patient> getPatientList(){
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.postForEntity(nurseryUrl, patient, Patient.class);
         return patientList;
     }
 
