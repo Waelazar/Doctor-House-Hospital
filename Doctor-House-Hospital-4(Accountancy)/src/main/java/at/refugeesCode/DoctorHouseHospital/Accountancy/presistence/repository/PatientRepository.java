@@ -1,4 +1,8 @@
 package at.refugeesCode.DoctorHouseHospital.Accountancy.presistence.repository;
 
-public interface PatientRepository {
+import at.refugeesCode.DoctorHouseHospital.Accountancy.presistence.model.Patient;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PatientRepository extends JpaRepository<Patient, Long>{
+
 }
