@@ -25,6 +25,7 @@ public class Nurse {
         map.put("Feeding Tips", "colic");
         map.put("Cymbalta oral", "depression");
         map.put("Lexapro", "stress");
+        map.put("Aspirin", "lupus");
 
         for (Map.Entry<String, String> entry: map.entrySet()){
             if(!illness.isEmpty() && entry.getValue().equalsIgnoreCase(illness)){
