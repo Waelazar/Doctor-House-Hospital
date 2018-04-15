@@ -21,7 +21,8 @@ public class Patient {
     public Patient() {
     }
 
-    public Patient(String name, List<String> symptoms, String illness, String treatment) {
+    public Patient(String id, String name, List<String> symptoms, String illness, String treatment) {
+        this.id = id;
         this.name = name;
         this.symptoms = symptoms;
         this.illness = illness;
