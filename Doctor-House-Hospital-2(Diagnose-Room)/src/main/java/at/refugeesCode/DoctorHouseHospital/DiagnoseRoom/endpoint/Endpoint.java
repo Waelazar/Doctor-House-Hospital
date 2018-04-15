@@ -1,5 +1,7 @@
 package at.refugeesCode.DoctorHouseHospital.DiagnoseRoom.endpoint;
 
+import at.refugeesCode.DoctorHouseHospital.DiagnoseRoom.model.Docktor;
+import at.refugeesCode.DoctorHouseHospital.DiagnoseRoom.model.Patient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -11,10 +13,10 @@ public class Endpoint {
 
     private Patient patient;
 
-    private Doctor doctor;
+    private Docktor doctor;
     private List<Patient> patientList = new ArrayList<>();
 
-    public Endpoint(Patient patient, Doctor doctor) {
+    public Endpoint(Patient patient, Docktor doctor) {
         this.patient = patient;
         this.doctor = doctor;
     }
