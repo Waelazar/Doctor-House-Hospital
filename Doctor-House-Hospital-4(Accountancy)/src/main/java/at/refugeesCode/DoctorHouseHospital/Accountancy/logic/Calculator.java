@@ -35,9 +35,9 @@ public class Calculator {
 
         for (Map.Entry<String, String> entry: map.entrySet()){
             if(!treatment.isEmpty() && entry.getValue().equalsIgnoreCase(treatment)){
-                entry.getKey();
+                return entry.getKey();
             }
         }
-        return "There is treatment";
+        return "There is no such medicine";
     }
 }
