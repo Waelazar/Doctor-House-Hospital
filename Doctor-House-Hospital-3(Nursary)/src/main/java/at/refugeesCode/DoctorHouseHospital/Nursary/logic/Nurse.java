@@ -36,7 +36,7 @@ public class Nurse {
 
         for (Map.Entry<String, String> entry: map.entrySet()){
             if(!illness.isEmpty() && entry.getValue().equalsIgnoreCase(illness)){
-                entry.getKey();
+                return entry.getKey();
             }
         }
         return "There is treatment";
