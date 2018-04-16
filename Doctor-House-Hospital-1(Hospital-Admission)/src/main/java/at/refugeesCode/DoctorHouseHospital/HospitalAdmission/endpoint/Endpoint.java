@@ -1,6 +1,7 @@
 package at.refugeesCode.DoctorHouseHospital.HospitalAdmission.endpoint;
 
 import at.refugeesCode.DoctorHouseHospital.HospitalAdmission.model.Patient;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -15,8 +16,13 @@ public class Endpoint {
 
     private List<Patient> patientList = new ArrayList<>();
 
-    public Endpoint(Patient patient) {
+    @Value("${Diagnose.Url}")
+    private String diagnoseUrl;
+
+    private RestTemplate restTemplate = new RestTemplate();
+    public Endpoint(Patient patient, String diagnoseUrl) {
         this.patient = patient;
+        this.diagnoseUrl = diagnoseUrl;
     }
 
     @GetMapping
@@ -27,8 +33,7 @@ public class Endpoint {
     @PostMapping
     Patient postPatient(@RequestBody Patient patient){
         patientList.add(patient);
-        RestTemplate restTemplate = new RestTemplate();
-        restTemplate.postForEntity("http://localhost:8081/patients", patient ,Patient.class);
+        restTemplate.postForEntity(diagnoseUrl, patient ,Patient.class);
         return patient;
     }
 
