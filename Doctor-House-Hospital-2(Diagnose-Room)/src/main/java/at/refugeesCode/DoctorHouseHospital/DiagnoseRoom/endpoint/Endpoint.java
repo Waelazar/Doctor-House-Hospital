@@ -24,10 +24,9 @@ public class Endpoint {
 
     private RestTemplate restTemplate = new RestTemplate();
 
-    public Endpoint(Patient patient, Docktor doctor, String nurseryUrl) {
+    public Endpoint(Patient patient, Docktor doctor) {
         this.patient = patient;
         this.doctor = doctor;
-        this.nurseryUrl = nurseryUrl;
     }
 
     @GetMapping
