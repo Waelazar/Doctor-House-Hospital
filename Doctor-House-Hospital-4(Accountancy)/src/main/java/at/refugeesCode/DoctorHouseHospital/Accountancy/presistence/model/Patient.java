@@ -2,17 +2,22 @@ package at.refugeesCode.DoctorHouseHospital.Accountancy.presistence.model;
 
 import org.springframework.stereotype.Component;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
 import java.util.List;
 
 @Entity
 @Component
 public class Patient {
 
+    @Id
     private Long id;
 
     private String name;
 
+    @ElementCollection(fetch = FetchType.EAGER)
     private List<String> symptoms;
 
     private String illness;
