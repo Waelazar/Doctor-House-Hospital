@@ -3,6 +3,7 @@ package at.refugeesCode.DoctorHouseHospital.Nursary.endpoint;
 import at.refugeesCode.DoctorHouseHospital.Nursary.logic.Nurse;
 import at.refugeesCode.DoctorHouseHospital.Nursary.presistence.model.Patient;
 import at.refugeesCode.DoctorHouseHospital.Nursary.presistence.repository.PatientRepository;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -17,9 +18,15 @@ public class Endpoint {
 
     private PatientRepository patientRepository;
 
-    public Endpoint(Patient patient, PatientRepository patientRepository) {
+    @Value("${Accountancy.Url}")
+    private String accountancyUrl;
+
+    private RestTemplate restTemplate = new RestTemplate();
+
+    public Endpoint(Patient patient, PatientRepository patientRepository, String accountancyUrl) {
         this.patient = patient;
         this.patientRepository = patientRepository;
+        this.accountancyUrl = accountancyUrl;
     }
 
     @GetMapping
@@ -31,8 +38,7 @@ public class Endpoint {
     Patient recivePatient(@RequestBody Patient recivedPatient){
         Nurse nurse = new Nurse();
         Patient checkedPatient = nurse.check(recivedPatient);
-        RestTemplate restTemplate = new RestTemplate();
-        restTemplate.postForEntity("http://localhost:8083/patients", checkedPatient, Patient.class);
+        restTemplate.postForEntity(accountancyUrl, checkedPatient, Patient.class);
         patientRepository.save(checkedPatient);
         return checkedPatient;
     }
