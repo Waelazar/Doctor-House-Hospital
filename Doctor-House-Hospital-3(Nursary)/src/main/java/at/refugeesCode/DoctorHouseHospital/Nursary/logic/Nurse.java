@@ -12,7 +12,13 @@ public class Nurse {
 
     private Patient patient;
 
-    private PatientRepository patientRepository;
+    public Nurse(Patient patient) {
+        this.patient = patient;
+    }
+
+    public Nurse() {
+    }
+
     public Patient check(Patient recivedPatient){
         String illness = recivedPatient.getIllness();
         String treatment = getTreatment(illness);

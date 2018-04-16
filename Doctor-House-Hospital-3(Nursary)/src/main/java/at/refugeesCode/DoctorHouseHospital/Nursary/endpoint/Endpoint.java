@@ -3,7 +3,6 @@ package at.refugeesCode.DoctorHouseHospital.Nursary.endpoint;
 import at.refugeesCode.DoctorHouseHospital.Nursary.logic.Nurse;
 import at.refugeesCode.DoctorHouseHospital.Nursary.presistence.model.Patient;
 import at.refugeesCode.DoctorHouseHospital.Nursary.presistence.repository.PatientRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,8 +16,9 @@ public class Endpoint {
 
     private PatientRepository patientRepository;
 
-    public Endpoint(Patient patient) {
+    public Endpoint(Patient patient, PatientRepository patientRepository) {
         this.patient = patient;
+        this.patientRepository = patientRepository;
     }
 
     @GetMapping
