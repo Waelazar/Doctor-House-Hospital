@@ -20,9 +20,8 @@ public class Endpoint {
     private String diagnoseUrl;
 
     private RestTemplate restTemplate = new RestTemplate();
-    public Endpoint(Patient patient, String diagnoseUrl) {
+    public Endpoint(Patient patient) {
         this.patient = patient;
-        this.diagnoseUrl = diagnoseUrl;
     }
 
     @GetMapping
