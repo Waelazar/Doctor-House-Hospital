@@ -1,9 +1,12 @@
 package at.refugeesCode.DoctorHouseHospital.Accountancy.presistence.model;
 
+import org.springframework.stereotype.Component;
+
 import javax.persistence.Entity;
 import java.util.List;
 
 @Entity
+@Component
 public class Patient {
 
     private Long id;
@@ -27,7 +30,7 @@ public class Patient {
         this.symptoms = symptoms;
         this.illness = illness;
         this.treatment = treatment;
-        Accountancy = accountancy;
+        this.Accountancy = accountancy;
     }
 
     public Long getId() {
