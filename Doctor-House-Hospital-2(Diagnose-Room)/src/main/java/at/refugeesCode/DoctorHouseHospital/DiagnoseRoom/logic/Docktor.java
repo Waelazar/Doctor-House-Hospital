@@ -1,5 +1,6 @@
-package at.refugeesCode.DoctorHouseHospital.DiagnoseRoom.model;
+package at.refugeesCode.DoctorHouseHospital.DiagnoseRoom.logic;
 
+import at.refugeesCode.DoctorHouseHospital.DiagnoseRoom.model.Patient;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;

@@ -1,6 +1,6 @@
 package at.refugeesCode.DoctorHouseHospital.DiagnoseRoom.endpoint;
 
-import at.refugeesCode.DoctorHouseHospital.DiagnoseRoom.model.Docktor;
+import at.refugeesCode.DoctorHouseHospital.DiagnoseRoom.logic.Docktor;
 import at.refugeesCode.DoctorHouseHospital.DiagnoseRoom.model.Patient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
