@@ -17,11 +17,17 @@ public class Endpoint {
 
     private Docktor doctor;
 
+    @Value("${Nursery.Url}")
+    private String nurseryUrl;
+
     private List<Patient> patientList = new ArrayList<>();
 
-    public Endpoint(Patient patient, Docktor doctor) {
+    private RestTemplate restTemplate = new RestTemplate();
+
+    public Endpoint(Patient patient, Docktor doctor, String nurseryUrl) {
         this.patient = patient;
         this.doctor = doctor;
+        this.nurseryUrl = nurseryUrl;
     }
 
     @GetMapping
@@ -33,8 +39,7 @@ public class Endpoint {
     Patient reciveOnePatient(@RequestBody Patient patient) {
         Patient checkedPatient = doctor.check(patient);
         patientList.add(checkedPatient);
-        RestTemplate restTemplate = new RestTemplate();
-        restTemplate.postForEntity("http://localhost:8082/patients", checkedPatient, Patient.class);
+        restTemplate.postForEntity(nurseryUrl, checkedPatient, Patient.class);
         return checkedPatient;
     }
 }
