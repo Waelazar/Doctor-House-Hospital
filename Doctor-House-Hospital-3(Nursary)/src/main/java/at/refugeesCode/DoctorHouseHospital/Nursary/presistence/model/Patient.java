@@ -1,15 +1,15 @@
 package at.refugeesCode.DoctorHouseHospital.Nursary.presistence.model;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 
 @Document
-@Component
 public class Patient {
 
+    @Id
     private String id;
 
     private String name;

@@ -14,8 +14,6 @@ import java.util.List;
 @RequestMapping("/patients")
 public class Endpoint {
 
-    private Patient patient;
-
     private PatientRepository patientRepository;
 
     @Value("${Accountancy.Url}")
@@ -23,8 +21,7 @@ public class Endpoint {
 
     private RestTemplate restTemplate = new RestTemplate();
 
-    public Endpoint(Patient patient, PatientRepository patientRepository) {
-        this.patient = patient;
+    public Endpoint(PatientRepository patientRepository) {
         this.patientRepository = patientRepository;
     }
 
