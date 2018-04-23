@@ -10,6 +10,7 @@
         <module name="Doctor-House-Hospital-2(Diagnose-Room)" />
         <module name="Doctor-House-Hospital-3(Nursary)" />
         <module name="Doctor-House-Hospital-4(Accountancy)" />
+        <module name="Doctor-House-Hospital-5(Administration-UI)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -17,6 +18,7 @@
       <module name="Doctor-House-Hospital-2(Diagnose-Room)" target="9" />
       <module name="Doctor-House-Hospital-3(Nursary)" target="9" />
       <module name="Doctor-House-Hospital-4(Accountancy)" target="9" />
+      <module name="Doctor-House-Hospital-5(Administration-UI)" target="9" />
     </bytecodeTargetLevel>
   </component>
 </project>
