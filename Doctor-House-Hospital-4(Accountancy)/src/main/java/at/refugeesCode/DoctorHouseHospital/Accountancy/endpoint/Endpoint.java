@@ -4,7 +4,6 @@ import at.refugeesCode.DoctorHouseHospital.Accountancy.logic.Calculator;
 import at.refugeesCode.DoctorHouseHospital.Accountancy.presistence.model.Patient;
 import at.refugeesCode.DoctorHouseHospital.Accountancy.presistence.repository.PatientRepository;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -12,12 +11,9 @@ import java.util.List;
 @RequestMapping("/patients")
 public class Endpoint {
 
-    private Patient patient;
-
     private PatientRepository patientRepository;
 
-    public Endpoint(Patient patient, PatientRepository patientRepository) {
-        this.patient = patient;
+    public Endpoint(PatientRepository patientRepository) {
         this.patientRepository = patientRepository;
     }
 
