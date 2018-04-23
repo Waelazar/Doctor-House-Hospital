@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Index</title>
+</head>
+<body>
+<form th:action="@{/}" th:object="${patientModel}" method="post">
+    <input type="text" placeholder="id" th:field="*{id}"/>
+    <input type="text" placeholder="name" th:field="*{name}"/>
+    <input type="text" placeholder="first symptom" th:field="*{symptoms}"/>
+    <input type="text" placeholder="second symptom" th:field="*{symptoms}"/>
+
+    <input type="submit"/>
+</form>
+</body>
+</html>

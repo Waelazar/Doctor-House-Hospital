@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Invoice</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Symptoms</th>
+        <th>Illness</th>
+        <th>Treatment</th>
+        <th>Accountancy</th>
+    </tr>
+        <tr th:each="patient : ${checkedPatient}">
+            <td th:text="${patient.id}">...</td>
+            <td th:text="${patient.name}">...</td>
+            <td th:text="${patient.symptoms}">...</td>
+            <td th:text="${patient.illness}">...</td>
+            <td th:text="${patient.treatment}">...</td>
+            <td th:text="${patient.Accountancy}">...</td>
+        </tr>
+</table>
+
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+
+</body>
+</html>
